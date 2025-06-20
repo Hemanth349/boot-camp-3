@@ -18,7 +18,7 @@ steps:
   args:
     - '-c'
     - |
-      cd project-3-dr/project-3-dr/my_app
+      cd project-3-dr/project-3-dr
       terraform init
 
 # 4. Terraform Apply inside my_app folder
@@ -27,7 +27,7 @@ steps:
   args:
     - '-c'
     - |
-      cd project-3-dr/project-3-dr/my_app
+      cd project-3-dr/project-3-dr
       terraform apply -auto-approve
 
 images:
