@@ -1,3 +1,7 @@
+serviceAccount: projects/project-2-458822/serviceAccounts/hemanth-861@project-2-458822.iam.gserviceaccount.com
+
+options:
+  logging: CLOUD_LOGGING_ONLY
 steps:
 # 1. Build the Docker image from my_app folder
 - name: 'gcr.io/cloud-builders/docker'
