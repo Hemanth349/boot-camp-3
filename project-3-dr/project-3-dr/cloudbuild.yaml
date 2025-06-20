@@ -1,0 +1,30 @@
+steps:
+# 1. Build the Docker image
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/image', '.' ]
+  dir: 'my_app'
+
+# 2. Push the image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'gcr.io/$PROJECT_ID/image' ]
+
+# 3. Initialize Terraform
+- name: 'hashicorp/terraform:light'
+  entrypoint: 'sh'
+  args:
+    - '-c'
+    - |
+      cd project-3-dr/my_app
+      terraform init
+
+# 4. Apply Terraform (deploy Cloud Run service)
+- name: 'hashicorp/terraform:light'
+  entrypoint: 'sh'
+  args:
+    - '-c'
+    - |
+      cd project-3-dr/my_app
+      terraform apply -auto-approve
+
+images:
+- 'gcr.io/$PROJECT_ID/image'
