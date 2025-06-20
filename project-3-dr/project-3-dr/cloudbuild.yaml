@@ -6,7 +6,7 @@ steps:
 # 1. Build the Docker image from my_app folder
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/image:latest', '.']
-  dir: 'project-3-dr/my_app'
+  dir: 'project-3-dr/project-3-dr/my_app'
 
 # 2. Push the Docker image
 - name: 'gcr.io/cloud-builders/docker'
