@@ -6,7 +6,7 @@ steps:
 # 1. Build the Docker image from my_app folder
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/image:latest', '.']
-  dir: 'my_app'
+  dir: 'project-3-dr/my_app'
 
 # 2. Push the Docker image
 - name: 'gcr.io/cloud-builders/docker'
@@ -18,7 +18,7 @@ steps:
   args:
     - '-c'
     - |
-      cd my_app
+      cd project-3-dr/project-3-dr/my_app
       terraform init
 
 # 4. Terraform Apply inside my_app folder
@@ -27,7 +27,7 @@ steps:
   args:
     - '-c'
     - |
-      cd my_app
+      cd project-3-dr/project-3-dr/my_app
       terraform apply -auto-approve
 
 images:
