@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "your-terraform-state-bucket"
+    bucket  = "hemanth_tf_bucket"
     prefix  = "dr-setup/terraform/state"
   }
 }
