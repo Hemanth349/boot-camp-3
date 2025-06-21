@@ -27,6 +27,11 @@ variable "primary_ip" {
   type        = string
   default = "0.0.0.0/0"
 }
+variable "primary_ip" {
+  description = "Primary service public IP"
+  type        = string
+  default = "0.0.0.0/0"
+}
 
 variable "domain_name" {
   description = "Domain name for DNS"
