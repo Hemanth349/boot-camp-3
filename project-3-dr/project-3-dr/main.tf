@@ -21,7 +21,7 @@ provider "google" {
 
 # Primary VPC module deployed with primary provider
 module "vpc_primary" {
-  source  = "./vpc"
+  source  = "./project-3-dr/vpc/main.tf"
   region  = var.primary_region
   index   = 1
 
@@ -32,7 +32,7 @@ module "vpc_primary" {
 
 # Secondary VPC module deployed with secondary provider
 module "vpc_secondary" {
-  source  = "./vpc"
+  source  ="./project-3-dr/vpc/main.tf"
   region  = var.secondary_region
   index   = 2
 
@@ -43,7 +43,7 @@ module "vpc_secondary" {
 
 # Storage module creates buckets in primary and secondary regions using primary provider
 module "storage" {
-  source           = "./storage"
+  source           = "./project-3-dr/storage"
   region           = var.primary_region
   bucket_name      = var.bucket_name
   primary_bucket   = "${var.bucket_name}-${var.primary_region}"
@@ -56,7 +56,7 @@ module "storage" {
 
 # DNS module - Create DNS Managed Zone and failover records for your domain
 module "DNS" {
-  source       = "./dns"
+  source       = "./project-3-dr/dns"
   primary_ip   = var.primary_ip
   secondary_ip = var.secondary_ip
   domain_name  = var.domain_name
