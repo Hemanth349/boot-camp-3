@@ -19,7 +19,7 @@ variable "secondary_region" {
 variable "bucket_name" {
   description = "Base name for the Cloud Storage buckets"
   type        = string
-  default     = "hemanth_tf_bucket"
+  default     = "hemanth_dr_bucket"
 }
 
 variable "primary_ip" {
