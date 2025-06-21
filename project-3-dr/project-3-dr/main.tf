@@ -57,6 +57,7 @@ module "DNS" {
   primary_ip   = var.primary_ip
   secondary_ip   = var.secondary_ip
   domain_name  = var.domain_name
+ dns_zone_name = var.dns_zone_name 
   providers = {
     google = google.primary
   }
