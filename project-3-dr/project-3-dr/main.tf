@@ -38,8 +38,10 @@ module "vpc_secondary" {
 }
 
 module "storage" {
-  source           = "./storage"
-  bucket_name      = var.bucket_name
+  source = "./storage"
+  region           = var.primary_region
+  primary_bucket   = "${var.bucket_name}-${var.primary_region}"
+  secondary_bucket = "${var.bucket_name}-${var.secondary_region}"
   providers = {
     google = google.primary
   }
