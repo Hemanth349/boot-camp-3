@@ -34,5 +34,5 @@ variable "secondary_ip" {
 
 variable "domain_name" {
   description = "Domain name for DNS"
-  default     = "."
+  default     = "somen.store"
 }
