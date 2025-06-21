@@ -25,6 +25,7 @@ variable "bucket_name" {
 variable "primary_ip" {
   description = "Primary service public IP"
   type        = string
+  default = "0.0.0.0/0"
 }
 
 variable "domain_name" {
