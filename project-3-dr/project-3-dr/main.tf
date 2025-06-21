@@ -8,13 +8,13 @@ terraform {
 }
 
 provider "google" {
-  project = var.project_ID
+  project = var.project_id
   region  = var.primary_region
   alias   = "primary"
 }
 
 provider "google" {
-  project = var.project_ID
+  project = var.project_id
   region  = var.secondary_region
   alias   = "secondary"
 }
@@ -59,6 +59,6 @@ module "DNS" {
 }
 
 resource "google_project_service" "firestore" {
-  project = var.project_ID
+  project = var.project_id
   service = "firestore.googleapis.com"
 }
