@@ -6,11 +6,13 @@ variable "project_id" {
 
 variable "primary_region" {
   description = "Primary GCP region"
+  type        = string
   default     = "us-central1"
 }
 
 variable "secondary_region" {
   description = "Secondary GCP region"
+  type        = string
   default     = "us-east1"
 }
 
@@ -34,20 +36,6 @@ variable "secondary_ip" {
 
 variable "domain_name" {
   description = "Domain name for DNS"
+  type        = string
   default     = "somen.store"
 }
-variable "region" {
-  description = "Region where the buckets will be created"
-  type        = string
-}
-
-variable "primary_bucket" {
-  description = "Name of the primary bucket"
-  type        = string
-}
-
-variable "secondary_bucket" {
-  description = "Name of the secondary bucket"
-  type        = string
-}
-
