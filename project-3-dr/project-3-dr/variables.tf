@@ -25,13 +25,11 @@ variable "bucket_name" {
 variable "primary_ip" {
   description = "Primary service public IP"
   type        = string
-  default     = "34.123.45.67"
 }
 
 variable "secondary_ip" {
   description = "Secondary service public IP"
   type        = string
-  default     = "35.234.56.78"
 }
 
 variable "domain_name" {
