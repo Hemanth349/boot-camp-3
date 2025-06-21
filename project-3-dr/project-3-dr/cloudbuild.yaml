@@ -2,17 +2,44 @@ serviceAccount: projects/project-2-458822/serviceAccounts/hemanth-861@project-2-
 
 options:
   logging: CLOUD_LOGGING_ONLY
+
 steps:
-# 1. Build the Docker image from my_app folder
+# Step 1: Build Docker image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/image:latest', '.']
   dir: 'project-3-dr/project-3-dr/my_app'
 
-# 2. Push the Docker image
+# Step 2: Push Docker image
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/image:latest']
 
-# 3. Terraform Init inside my_app folder
+# Step 3: Deploy to Cloud Run in primary region (e.g., us-central1)
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+    [
+      'run', 'deploy', 'my-app-primary',
+      '--image', 'gcr.io/$PROJECT_ID/image:latest',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated',
+      '--vpc-connector', 'vpc-us-central1'
+    ]
+
+# Step 4: Deploy to Cloud Run in secondary region (e.g., us-east1)
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+    [
+      'run', 'deploy', 'my-app-secondary',
+      '--image', 'gcr.io/$PROJECT_ID/image:latest',
+      '--region', 'us-east1',
+      '--platform', 'managed',
+      '--allow-unauthenticated',
+      '--vpc-connector', 'vpc-us-east1'
+    ]
+
+# Step 5: Terraform Init
 - name: 'hashicorp/terraform:1.5.7'
   entrypoint: 'sh'
   args:
@@ -21,7 +48,7 @@ steps:
       cd project-3-dr/project-3-dr
       terraform init
 
-# 4. Terraform Apply inside my_app folder
+# Step 6: Terraform Apply
 - name: 'hashicorp/terraform:1.5.7'
   entrypoint: 'sh'
   args:
