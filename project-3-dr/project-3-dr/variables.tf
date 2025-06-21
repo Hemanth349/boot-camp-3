@@ -22,7 +22,7 @@ variable "bucket_name" {
   default     = "hemanth_dr_bucket"
 }
 
-variable "primary_ip" {
+variable "secondary_ip" {
   description = "Primary service public IP"
   type        = string
   default = "0.0.0.0/0"
