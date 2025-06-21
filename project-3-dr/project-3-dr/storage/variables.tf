@@ -17,3 +17,19 @@ variable "secondary_bucket" {
   description = "Name of the secondary bucket"
   type        = string
 }
+
+variable "primary_region" {
+  description = "Primary region"
+  type        = string
+}
+
+variable "secondary_region" {
+  description = "Secondary region"
+  type        = string
+}
+
+variable "project_id" {
+  description = "GCP project ID"
+  type        = string
+}
+
