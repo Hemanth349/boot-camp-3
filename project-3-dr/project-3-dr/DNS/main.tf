@@ -22,4 +22,11 @@ resource "google_dns_record_set" "app_record" {
   managed_zone = google_dns_managed_zone.zone.name
   rrdatas      = [var.primary_ip]
 }
+resource "google_dns_record_set" "secondary" {
+  name         = var.domain_name
+  managed_zone = var.dns_zone_name
+  type         = "A"
+  ttl          = 300
+  rrdatas      = [var.secondary_ip]
+}
 
