@@ -27,11 +27,6 @@ variable "primary_ip" {
   type        = string
 }
 
-variable "secondary_ip" {
-  description = "Secondary service public IP"
-  type        = string
-}
-
 variable "domain_name" {
   description = "Domain name for DNS"
   type        = string
