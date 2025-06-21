@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
 resource "google_storage_bucket" "bucket" {
   name     = "${var.bucket_name}-${var.region}"
   location = var.region
