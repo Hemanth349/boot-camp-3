@@ -23,7 +23,7 @@ steps:
       '--region', 'us-central1',
       '--platform', 'managed',
       '--allow-unauthenticated',
-      '--vpc-connector', 'vpc-us-central1'
+      '--vpc-us-central1'
     ]
 
 # Step 4: Deploy to Cloud Run in secondary region (e.g., us-east1)
@@ -36,7 +36,7 @@ steps:
       '--region', 'us-east1',
       '--platform', 'managed',
       '--allow-unauthenticated',
-      '--vpc-connector', 'vpc-us-east1'
+      '--vpc-us-east1'
     ]
 
 # Step 5: Terraform Init
