@@ -6,10 +6,20 @@ terraform {
     }
   }
 }
-resource "google_storage_bucket" "bucket" {
-  name     = "${var.bucket_name}-${var.region}"
-  location = var.region
-  versioning { enabled = true }
+resource "google_storage_bucket" "primary" {
+  name     = var.primary_bucket
+  location = var.primary_region
+  versioning {
+    enabled = true
+  }
+}
+
+resource "google_storage_bucket" "secondary" {
+  name     = var.secondary_bucket
+  location = var.secondary_region
+  versioning {
+    enabled = true
+  }
 }
 
 resource "google_storage_transfer_job" "replication" {
