@@ -32,14 +32,16 @@ variable "primary_ip" {
   type        = string
   default = "0.0.0.0/0"
 }
+variable "dns_zone_name" {
+  description = "The DNS managed zone name"
+  type        = string
+  default     = "somen-store-zone"
+}
 
 variable "domain_name" {
   description = "Domain name for DNS"
   type        = string
   default     = "somen.store"
 }
-variable "dns_zone_name" {
-  description = "The DNS managed zone name"
-  type        = string
-}
+
 
