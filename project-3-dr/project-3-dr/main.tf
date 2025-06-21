@@ -43,8 +43,6 @@ module "storage" {
   bucket_name      = var.bucket_name
   primary_region   = var.primary_region
   secondary_region = var.secondary_region
-}
-
   providers = {
     google = google.primary
   }
