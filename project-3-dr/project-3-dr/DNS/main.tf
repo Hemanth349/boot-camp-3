@@ -13,12 +13,6 @@ resource "google_dns_managed_zone" "zone" {
   description = "DNS zone for somen.store"
 }
 
-resource "google_dns_managed_zone" "zone" {
-  name        = "somen-store-zone"
-  dns_name    = "somen.store."
-  description = "DNS zone for somen.store"
-  project     = var.project_id
-}
 
 # Point to primary IP (manually update if needed)
 resource "google_dns_record_set" "app_record" {
