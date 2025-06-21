@@ -1,6 +1,7 @@
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
+  default     = "project-2-458822"
 }
 
 variable "primary_region" {
@@ -16,19 +17,22 @@ variable "secondary_region" {
 variable "bucket_name" {
   description = "Base name for the Cloud Storage buckets"
   type        = string
+  default     = "my-dr-bucket"
 }
 
 variable "primary_ip" {
-  description = "Primary service public IP (load balancer or server)"
+  description = "Primary service public IP"
   type        = string
+  default     = "34.123.45.67"
 }
 
 variable "secondary_ip" {
   description = "Secondary service public IP"
   type        = string
+  default     = "35.234.56.78"
 }
 
 variable "domain_name" {
   description = "Domain name for DNS"
-  default     = "example.com."
+  default     = "."
 }
