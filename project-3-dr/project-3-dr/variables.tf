@@ -17,7 +17,7 @@ variable "secondary_region" {
 variable "bucket_name" {
   description = "Base name for the Cloud Storage buckets"
   type        = string
-  default     = "my-dr-bucket"
+  default     = "hemanth_tf_bucket"
 }
 
 variable "primary_ip" {
@@ -36,3 +36,18 @@ variable "domain_name" {
   description = "Domain name for DNS"
   default     = "somen.store"
 }
+variable "region" {
+  description = "Region where the buckets will be created"
+  type        = string
+}
+
+variable "primary_bucket" {
+  description = "Name of the primary bucket"
+  type        = string
+}
+
+variable "secondary_bucket" {
+  description = "Name of the secondary bucket"
+  type        = string
+}
+
