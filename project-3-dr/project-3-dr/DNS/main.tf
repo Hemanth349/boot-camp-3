@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 4.0"
+    }
+  }
+}
 # 1. Create a DNS Managed Zone for somen.store
 resource "google_dns_managed_zone" "zone" {
   name        = "somen-store-zone"
