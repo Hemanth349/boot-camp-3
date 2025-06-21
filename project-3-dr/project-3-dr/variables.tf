@@ -41,7 +41,7 @@ variable "dns_zone_name" {
 variable "domain_name" {
   description = "Domain name for DNS"
   type        = string
-  default     = "somen.store"
+  default     = "somen.store."
 }
 
 
