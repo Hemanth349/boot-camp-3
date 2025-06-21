@@ -21,7 +21,7 @@ provider "google" {
 
 # Primary VPC module deployed with primary provider
 module "vpc_primary" {
-  source  = "./project-3-dr/vpc/main.tf"
+  source  = "./project-3-dr/vpc"
   region  = var.primary_region
   index   = 1
 
@@ -32,7 +32,7 @@ module "vpc_primary" {
 
 # Secondary VPC module deployed with secondary provider
 module "vpc_secondary" {
-  source  ="./project-3-dr/vpc/main.tf"
+  source  ="./project-3-dr/vpc"
   region  = var.secondary_region
   index   = 2
 
