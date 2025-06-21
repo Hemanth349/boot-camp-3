@@ -39,7 +39,6 @@ module "vpc_secondary" {
 
 module "storage" {
   source           = "./storage"
-  project_id       = var.project_id
   bucket_name      = var.bucket_name
   primary_region   = var.primary_region
   secondary_region = var.secondary_region
