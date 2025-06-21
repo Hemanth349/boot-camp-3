@@ -38,3 +38,8 @@ variable "domain_name" {
   type        = string
   default     = "somen.store"
 }
+variable "dns_zone_name" {
+  description = "The DNS managed zone name"
+  type        = string
+}
+
